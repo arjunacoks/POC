@@ -1,0 +1,17 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.14 # This is the action
+        with:
+          heroku_api_key: ${{secrets.bba0ec79-b881-407c-9248-733a15b16d78}}
+          heroku_app_name: "demo-poc-arsec" #Must be unique in Heroku
+          heroku_email: "masangsok@gmail.com"
